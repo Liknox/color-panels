@@ -13,11 +13,9 @@ body {
 .col {
 	flex: 1;
 	display: flex;
-	background-color: #ccc;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	border: 1px solid crimson;
 }
 
 .col h2 {
