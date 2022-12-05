@@ -31,5 +31,13 @@ function setTextColor(text, color) {
 setRandomColors()
 
 document.addEventListener("keydown", e => {
+   e.preventDefault()
 	if (e.code.toLowerCase() === "space") setRandomColors()
+})
+document.addEventListener("click", e => {
+	if (e.target.closest("button")) {
+		// e.target.closest("button").classList.add("fa-lock")
+		e.target.closest("button").children[0].classList.toggle("fa-lock")
+		e.target.closest("button").children[0].classList.toggle("fa-lock-open")
+	}
 })
