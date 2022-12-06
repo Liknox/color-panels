@@ -27,6 +27,10 @@ function setRandomColors() {
 	})
 }
 
+function copyToClipboard(text) {
+	return navigator.clipboard.writeText(text)
+}
+
 function setTextColor(text, color) {
 	const luminance = chroma(color).luminance()
 	text.style.color = luminance > 0.5 ? "black" : "white"
@@ -44,4 +48,5 @@ document.addEventListener("click", e => {
 		e.target.closest("button").children[0].classList.toggle("fa-lock")
 		e.target.closest("button").children[0].classList.toggle("fa-lock-open")
 	}
+	e.target.dataset.type === "copy" && copyToClipboard(e.target.textContent)
 })
