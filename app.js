@@ -70,7 +70,11 @@ setRandomColors(true)
 
 document.addEventListener("keydown", e => {
 	e.preventDefault()
-	if (e.code.toLowerCase() === "space") setRandomColors()
+	if (e.code.toLowerCase() === "space") {
+      const spaceButton = document.querySelector(".pressSpace")
+      spaceButton.style.display = "none"
+		setRandomColors()
+	}
 })
 document.addEventListener("click", e => {
 	if (e.target.closest("button")) {
@@ -78,11 +82,11 @@ document.addEventListener("click", e => {
 		e.target.closest("button").children[0].classList.toggle("fa-lock")
 		e.target.closest("button").children[0].classList.toggle("fa-lock-open")
 	} else if (e.target.dataset.type === "copy") {
-      const copyBlock = document.querySelector(".copied")
-      copyBlock.style.transform = "translate(-50%, 120%)"
-      setTimeout(() => {
-         copyBlock.style.transform = "translate(-50%, 0%)"
-      }, 1500);
+		const copyBlock = document.querySelector(".copied")
+		copyBlock.style.transform = "translate(-50%, 120%)"
+		setTimeout(() => {
+			copyBlock.style.transform = "translate(-50%, 0%)"
+		}, 1500)
 		copyToClipboard(e.target.textContent)
 	}
 })
