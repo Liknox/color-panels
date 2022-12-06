@@ -10,14 +10,28 @@ function generateRandomColor() {
 	return "#" + color
 }
 
-function setRandomColors() {
-	cols.forEach(e => {
+function setRandomColors(isInitial) {
+	const colors = isInitial ? getColorsFromHash() : []
+
+	cols.forEach((e, index) => {
 		const isLocked = e.querySelector("i").classList.contains("fa-lock")
 		const text = e.querySelector("h2")
 		const button = e.querySelector("button")
-		const color = chroma.random()
 
-		if (isLocked) return
+		if (isLocked) {
+			colors.push(text.textContent)
+			return
+		}
+
+		const color = isInitial 
+         ? colors[index] 
+            ? colors[index]
+            :chroma.random( )  
+         : chroma.random()
+
+		if (!isInitial) {
+			colors.push(color)
+		}
 
 		text.textContent = color
 		e.style.background = color
@@ -25,6 +39,8 @@ function setRandomColors() {
 		setTextColor(text, color)
 		setTextColor(button, color)
 	})
+
+	updateColorHash(colors)
 }
 
 function copyToClipboard(text) {
@@ -36,7 +52,25 @@ function setTextColor(text, color) {
 	text.style.color = luminance > 0.5 ? "black" : "white"
 }
 
-setRandomColors()
+function updateColorHash(colors = []) {
+	document.location.hash = colors
+		.map(e => {
+			return e.toString().substring(1)
+		})
+		.join("-")
+}
+
+function getColorsFromHash() {
+	if (document.location.hash.length > 1) {
+		return document.location.hash
+			.substring(1)
+			.split("-")
+			.map(e => "#" + e)
+	}
+	return []
+}
+
+setRandomColors(true)
 
 document.addEventListener("keydown", e => {
 	e.preventDefault()
