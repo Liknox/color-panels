@@ -23,11 +23,7 @@ function setRandomColors(isInitial) {
 			return
 		}
 
-		const color = isInitial 
-         ? colors[index] 
-            ? colors[index]
-            :chroma.random( )  
-         : chroma.random()
+		const color = isInitial ? (colors[index] ? colors[index] : chroma.random()) : chroma.random()
 
 		if (!isInitial) {
 			colors.push(color)
@@ -81,6 +77,12 @@ document.addEventListener("click", e => {
 		// e.target.closest("button").classList.add("fa-lock")
 		e.target.closest("button").children[0].classList.toggle("fa-lock")
 		e.target.closest("button").children[0].classList.toggle("fa-lock-open")
+	} else if (e.target.dataset.type === "copy") {
+      const copyBlock = document.querySelector(".copied")
+      copyBlock.style.transform = "translate(-50%, 120%)"
+      setTimeout(() => {
+         copyBlock.style.transform = "translate(-50%, 0%)"
+      }, 1500);
+		copyToClipboard(e.target.textContent)
 	}
-	e.target.dataset.type === "copy" && copyToClipboard(e.target.textContent)
 })

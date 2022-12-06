@@ -24,10 +24,12 @@ body {
 	border-radius: 10px;
 	transition: background 0.3s;
 }
+
 .col h2:hover {
 	background: rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 }
+
 .col button {
 	border: none;
 	background: transparent;
@@ -37,7 +39,28 @@ body {
 	border-radius: 10px;
 	transition: background 0.3s;
 }
+
 .col button:hover {
 	background: rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 }
+
+.copied {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 210px;
+   position: absolute;
+   background: #fff;
+   padding: 20px;
+   border-radius: 10px;
+   top: -61px;
+   left: 50%;
+   transform: translateX(-50%);
+   transition: transform 0.2s;
+}
+
+img {
+   height: 20px;
+   width: 20px;
+} 
