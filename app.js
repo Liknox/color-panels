@@ -71,8 +71,8 @@ setRandomColors(true)
 document.addEventListener("keydown", e => {
 	e.preventDefault()
 	if (e.code.toLowerCase() === "space") {
-      const spaceButton = document.querySelector(".pressSpace")
-      spaceButton.style.display = "none"
+		const spaceButton = document.querySelector(".pressSpace")
+		spaceButton.style.display = "none"
 		setRandomColors()
 	}
 })
