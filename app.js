@@ -1,4 +1,5 @@
 const cols = document.querySelectorAll(".col")
+const reg = document.querySelector(".regenerator")
 
 function generateRandomColor() {
 	const hexCodes = "0123456789ABCDEF"
@@ -18,7 +19,6 @@ function setRandomColors(isInitial) {
 		const text = e.querySelector("h2")
 		const button = e.querySelector("button")
 		const tip = document.querySelector(".tip")
-		const reg = document.querySelector(".regenerator")
 
 		if (isLocked) {
 			colors.push(text.textContent)
@@ -52,11 +52,13 @@ function copyToClipboard(text) {
 }
 
 function setTextColor(text, color, bcg = false) {
+	const whiteColor = "#EBEBEB"
+	const blackColor = "#141414"
 	const luminance = chroma(color).luminance()
-	text.style.color = luminance > 0.5 ? "black" : "white"
+	text.style.color = luminance > 0.5 ? blackColor : whiteColor
 	if (bcg) {
-		text.style.color = luminance > 0.5 ? "white" : "black"
-		text.style.backgroundColor = luminance > 0.5 ? "black" : "white"
+		text.style.color = luminance > 0.5 ? whiteColor : blackColor
+		text.style.backgroundColor = luminance > 0.5 ? blackColor : whiteColor
 	}
 }
 
