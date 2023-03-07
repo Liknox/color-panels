@@ -1,3 +1,9 @@
+:root {
+	--default-white: #fff;
+	--primary-color: rgb(255, 255, 255, 0.7);
+	--dark-background: rgba(0, 0, 0, 0.1);
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -20,13 +26,13 @@ body {
 
 .col h2 {
 	padding: 10px;
-	color: #fff;
+	color: var(--default-white);
 	border-radius: 10px;
 	transition: background 0.3s;
 }
 
 .col h2:hover {
-	background: rgba(0, 0, 0, 0.1);
+	background: var(--dark-background);
 	cursor: pointer;
 }
 
@@ -34,14 +40,14 @@ body {
 	border: none;
 	background: transparent;
 	font-size: 1.5rem;
-	color: #fff;
+	color: var(--default-white);
 	padding: 10px;
 	border-radius: 10px;
 	transition: background 0.3s;
 }
 
 .col button:hover {
-	background: rgba(0, 0, 0, 0.1);
+	background: var(--dark-background);
 	cursor: pointer;
 }
 
@@ -51,9 +57,9 @@ body {
 	align-items: center;
 	width: 210px;
 	position: absolute;
-	background: rgb(255, 255, 255, 0.7);
+	background: var(--primary-color);
 	padding: 20px;
-	border-radius: 10px;
+	border-radius: 20px;
 	top: -61px;
 	left: 50%;
 	transform: translateX(-50%);
@@ -65,11 +71,11 @@ img {
 	width: 20px;
 }
 
-.pressSpace {
+.tip {
 	position: absolute;
 	top: 95%;
 	font-family: "Nunito Sans", sans-serif;
-	color: rgb(255, 255, 255, 0.7);
+	color: var(--primary-color);
 	font-size: 16px;
 	left: 50%;
 	transform: translateX(-50%);
@@ -80,15 +86,19 @@ img {
 	20% {
 		transform: translateX(-50%) rotate(15deg);
 	}
+
 	40% {
 		transform: translateX(-50%) rotate(-10deg);
 	}
+
 	60% {
 		transform: translateX(-50%) rotate(5deg);
 	}
+
 	80% {
 		transform: translateX(-50%) rotate(-5deg);
 	}
+
 	100% {
 		transform: translateX(-50%) rotate(0deg);
 	}

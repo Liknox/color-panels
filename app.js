@@ -17,6 +17,7 @@ function setRandomColors(isInitial) {
 		const isLocked = e.querySelector("i").classList.contains("fa-lock")
 		const text = e.querySelector("h2")
 		const button = e.querySelector("button")
+		const tip = document.querySelector(".tip")
 
 		if (isLocked) {
 			colors.push(text.textContent)
@@ -34,6 +35,9 @@ function setRandomColors(isInitial) {
 
 		setTextColor(text, color)
 		setTextColor(button, color)
+		if (index === 2) {
+			setTextColor(tip, color)
+		}
 	})
 
 	updateColorHash(colors)
@@ -69,9 +73,9 @@ function getColorsFromHash() {
 setRandomColors(true)
 
 document.addEventListener("keydown", e => {
-   if (e.code.toLowerCase() === "space") {
-      e.preventDefault()
-		const spaceButton = document.querySelector(".pressSpace")
+	if (e.code.toLowerCase() === "space") {
+		e.preventDefault()
+		const spaceButton = document.querySelector(".tip")
 		spaceButton.style.display = "none"
 		setRandomColors()
 	}
