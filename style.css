@@ -51,7 +51,7 @@ body {
 	align-items: center;
 	width: 210px;
 	position: absolute;
-	background: #fff;
+	background: rgb(255, 255, 255, 0.7);
 	padding: 20px;
 	border-radius: 10px;
 	top: -61px;
@@ -67,11 +67,29 @@ img {
 
 .pressSpace {
 	position: absolute;
-	top: 87%;
-	font-weight: bold;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-	color: rgba(0, 0, 0, 0.1);
-	font-size: 100px;
+	top: 95%;
+	font-family: "Nunito Sans", sans-serif;
+	color: rgb(255, 255, 255, 0.7);
+	font-size: 16px;
 	left: 50%;
 	transform: translateX(-50%);
+	animation: move 2s ease infinite;
+}
+
+@keyframes move {
+	20% {
+		transform: translateX(-50%) rotate(15deg);
+	}
+	40% {
+		transform: translateX(-50%) rotate(-10deg);
+	}
+	60% {
+		transform: translateX(-50%) rotate(5deg);
+	}
+	80% {
+		transform: translateX(-50%) rotate(-5deg);
+	}
+	100% {
+		transform: translateX(-50%) rotate(0deg);
+	}
 }

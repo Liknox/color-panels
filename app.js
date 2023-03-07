@@ -69,8 +69,8 @@ function getColorsFromHash() {
 setRandomColors(true)
 
 document.addEventListener("keydown", e => {
-	e.preventDefault()
-	if (e.code.toLowerCase() === "space") {
+   if (e.code.toLowerCase() === "space") {
+      e.preventDefault()
 		const spaceButton = document.querySelector(".pressSpace")
 		spaceButton.style.display = "none"
 		setRandomColors()
