@@ -37,6 +37,7 @@ body {
 }
 
 .col button {
+   width: 48px;
 	border: none;
 	background: transparent;
 	font-size: 1.5rem;
@@ -80,6 +81,22 @@ img {
 	left: 50%;
 	transform: translateX(-50%);
 	animation: move 2s ease infinite;
+}
+
+@media (max-width: 810px) {
+	body {
+		flex-direction: column;
+	}
+	.col {
+		flex-direction: row;
+		justify-content: center;
+	}
+	.col h2 {
+		order: 2;
+	}
+	.tip {
+		display: none;
+	}
 }
 
 @keyframes move {
