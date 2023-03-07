@@ -1,5 +1,6 @@
 const cols = document.querySelectorAll(".col")
 const reg = document.querySelector(".regenerator")
+const spaceButton = document.querySelector(".tip")
 
 function generateRandomColor() {
 	const hexCodes = "0123456789ABCDEF"
@@ -82,10 +83,14 @@ function getColorsFromHash() {
 
 setRandomColors(true)
 
+reg.addEventListener("click", () => {
+	setRandomColors()
+	spaceButton.style.display = "none"
+})
+
 document.addEventListener("keydown", e => {
 	if (e.code.toLowerCase() === "space") {
 		e.preventDefault()
-		const spaceButton = document.querySelector(".tip")
 		spaceButton.style.display = "none"
 		setRandomColors()
 	}
