@@ -18,6 +18,7 @@ function setRandomColors(isInitial) {
 		const text = e.querySelector("h2")
 		const button = e.querySelector("button")
 		const tip = document.querySelector(".tip")
+		const reg = document.querySelector(".regenerator")
 
 		if (isLocked) {
 			colors.push(text.textContent)
@@ -38,6 +39,9 @@ function setRandomColors(isInitial) {
 		if (index === 2) {
 			setTextColor(tip, color)
 		}
+		if (index === 4) {
+			setTextColor(reg, color, true)
+		}
 	})
 
 	updateColorHash(colors)
@@ -47,9 +51,13 @@ function copyToClipboard(text) {
 	return navigator.clipboard.writeText(text)
 }
 
-function setTextColor(text, color) {
+function setTextColor(text, color, bcg = false) {
 	const luminance = chroma(color).luminance()
 	text.style.color = luminance > 0.5 ? "black" : "white"
+	if (bcg) {
+		text.style.color = luminance > 0.5 ? "white" : "black"
+		text.style.backgroundColor = luminance > 0.5 ? "black" : "white"
+	}
 }
 
 function updateColorHash(colors = []) {
